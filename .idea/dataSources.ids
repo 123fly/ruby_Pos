@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="SQLite -" uuid="4206cab1-78ea-4898-a3ff-3d21b9eecf16">
+    <database-info product="SQLite" version="3.8.7" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="add_name_to_poromation_items" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="cart_lists" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="FLOAT" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
+      <column name="barcode" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="unit" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="count" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="items" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="FLOAT" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
+      <column name="barcode" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="unit" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="poromation_items" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="barcode" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="schema_migrations" schema="" catalog="" type="TABLE">
+      <column name="version" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <index name="unique_schema_migrations" unique="true" columns="version"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>

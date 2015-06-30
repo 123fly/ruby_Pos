@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <div id="header">
+    <ul>
+      <li><a href="item_list.html.erb">Let'sGo</a></li>
+      <li><a href="home.html.erb">主页</a></li>
+      <li><a href="item_list.html.erb">商品列表</a></li>
+      <li class="right"><a href="cart.erb"><%= image_tag('shopping71.png')%>购物车
+        <span id="number"></span></a></li>
+    </ul>
+  </div>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
