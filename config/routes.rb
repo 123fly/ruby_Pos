@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'index#home'
   get '/item_list.html.erb'=>'index#get_item_list'
-  get '/home.html.erb'=>'index#home.html.erb'
+  get '/home.html.erb'=>'index#home'
   get '/cart.erb'=>'index#show_cart_list'
   get '/get_cart_list'=>'index#get_cart_list'
   get '/add_number'=>'index#add_number'
   get '/pay.erb'=>'index#show_item'
   get '/sub_number'=>'index#sub_number'
   get '/pay'=>'index#pay'
+  get '/index/pay_delete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,20 +1,21 @@
 class IndexController < ApplicationController
   def home
-
+    @number = CartList.count_shop
+    render 'home.html.erb'
   end
 
   def get_item_list
     @items = Item.all
+    @number = CartList.count_shop
     render 'item_list.html.erb'
   end
 
   def show_cart_list
     @items = CartList.all
     @sum=0
-    @number=0
+   @number=CartList.count_shop
     for i in 0..@items.length-1
       @sum = @sum + @items[i].count*@items[i].price
-      @number=@number +@items[i].count
     end
     render 'cart.erb'
   end
@@ -23,6 +24,7 @@ class IndexController < ApplicationController
     @items = CartList.all
     @sum=0
     @poroation_sum=0
+    @number= CartList.count_shop
     for i in 0..@items.length-1
       @sum = @sum + @items[i].count*@items[i].price
       if PoromationItem.find_by_name(@items[i].name)!=nil
@@ -79,8 +81,9 @@ class IndexController < ApplicationController
     end
   end
 
-  def pay
+  def pay_delete
     CartList.delete_all
-    render :json => {:status => 1}
+    redirect_to '/item_list.html.erb'
+    # render :json => {:status => 1}
   end
 end

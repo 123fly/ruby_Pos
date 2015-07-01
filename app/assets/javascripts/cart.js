@@ -38,6 +38,8 @@ function add_number(id) {
         }
     });
 }
+
+
 function open_pay_page() {
     window.location.href = 'pay.erb'
 }
