@@ -32,7 +32,11 @@
                   <td>
                     <%= item.count %>
                   </td>
-                  <td><%= item.price*item.count %>（元）</td>
+                  <% if PoromationItem.find_by_name(item.name)==nil%>
+                      <td style="width: 400px" id=<%= item.name %>><%= item.price*item.count %>(元)</td>
+                  <% else %>
+                      <td style="width: 400px" id=<%= item.name %>><%= item.price*(item.count - item.count/3)%>(元)(原价:<%= item.price*item.count%>(元))</td>
+                  <% end %>
                 </tr>
             <% end %>
           </table>

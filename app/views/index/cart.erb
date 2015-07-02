@@ -30,9 +30,9 @@
                   <td>
                     <%= item.unit %></td>
                   <td>
-                    <button onclick="sub_number(this.id)" id=<%= item.id %>>-</button>
+                    <button onclick="show_number(this.id,'-')" id=<%= item.id %>>-</button>
                     <input type="text" class= <%= item.id %> value=<%= item.count %>>
-                    <button onclick="add_number(this.id)" id=<%= item.id %>>+</button>
+                    <button onclick="show_number(this.id,'+')" id=<%= item.id %>>+</button>
                   </td>
                   <% if PoromationItem.find_by_name(item.name)==nil%>
                       <td style="width: 400px" id=<%= item.name %>><%= item.price*item.count %>(元)</td>

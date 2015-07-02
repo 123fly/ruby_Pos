@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
   <div id="header">
     <ul>
-      <li><a href="item_list.html.erb">Let'sGo</a></li>
-      <li><a href="home.html.erb">主页</a></li>
-      <li><a href="item_list.html.erb">商品列表</a></li>
-      <li class="right"><a href="cart.erb"><%= image_tag('cart.png')%>购物车
+      <li><a href="/index/item_list">Let'sGo</a></li>
+      <li><a href="/index/home">主页</a></li>
+      <li><a href="/index/item_list">商品列表</a></li>
+      <li class="right"><a href="/index/cart"><%= image_tag('cart.png')%>购物车
         <span id="number">(<%= @number %>)</span></a></li>
     </ul>
   </div>

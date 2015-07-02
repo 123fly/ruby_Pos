@@ -1,26 +1,23 @@
 class IndexController < ApplicationController
   def home
     @number = CartList.count_shop
-    render 'home.html.erb'
   end
 
-  def get_item_list
+  def item_list
     @items = Item.all
     @number = CartList.count_shop
-    render 'item_list.html.erb'
   end
 
-  def show_cart_list
+  def cart
     @items = CartList.all
     @sum=0
-   @number=CartList.count_shop
+    @number=CartList.count_shop
     for i in 0..@items.length-1
       @sum = @sum + @items[i].count*@items[i].price
     end
-    render 'cart.erb'
   end
 
-  def show_item
+  def pay
     @items = CartList.all
     @sum=0
     @poroation_sum=0
@@ -31,59 +28,35 @@ class IndexController < ApplicationController
         @poroation_sum = @poroation_sum + @items[i].price*(@items[i].count/3)
       end
     end
-    render 'index/pay'
   end
 
   def get_cart_list
-    item = Item.find_by_id(params[:id])
-    if CartList.find_by_name(item.name)==nil
-      goods = CartList.new
-      goods.name=item.name
-      goods.barcode=item.barcode
-      goods.price=item.price
-      goods.category=item.category
-      goods.unit=item.unit
-      goods.count=1
+    items=CartList.get_goods(params[:id])
+      respond_to do |format|
+        format.json { render json: items }
+      end
+  end
+
+  def show_number
+    item = CartList.find_by_id(params[:id])
+    if params[:status]=='+'
+      item.count=item.count+1
     else
-      goods = CartList.find_by_name(item.name)
-      goods.count = goods.count+1
+      item.count=item.count-1
     end
-    if goods.save
-      items=CartList.all
-      respond_to do |format|
-        format.json { render json: items }
-      end
-    end
-  end
-
-  def add_number
-    item = CartList.find_by_id(params[:id])
-    item.count=item.count+1
     if item.save
       items=CartList.all
       respond_to do |format|
         format.json { render json: items }
       end
     end
-  end
-
-  def sub_number
-    item = CartList.find_by_id(params[:id])
-    item.count=item.count-1
-    if item.save
-      items=CartList.all
-      respond_to do |format|
-        format.json { render json: items }
-      end
-      if item.count==0
-        item.delete
-      end
+    if item.count==0
+      item.delete
     end
   end
 
   def pay_delete
     CartList.delete_all
-    redirect_to '/item_list.html.erb'
-    # render :json => {:status => 1}
+    redirect_to '/index/item_list'
   end
 end

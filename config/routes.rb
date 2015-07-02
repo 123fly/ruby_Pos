@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  get 'index/home'
+  # get 'index/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'index#home'
-  get '/item_list.html.erb'=>'index#get_item_list'
-  get '/home.html.erb'=>'index#home'
-  get '/cart.erb'=>'index#show_cart_list'
+  get '/index/item_list'
+  get '/index/home'
+  get '/index/cart'
+  get '/index/pay'
   get '/get_cart_list'=>'index#get_cart_list'
-  get '/add_number'=>'index#add_number'
-  get '/pay.erb'=>'index#show_item'
-  get '/sub_number'=>'index#sub_number'
+  get '/show_number'=>'index#show_number'
   get '/pay'=>'index#pay'
   get '/index/pay_delete'
   # Example of regular route:
